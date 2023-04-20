@@ -1,0 +1,20 @@
+CREATE TABLE Forecast (
+    latitude REAL NOT NULL,
+    longitude REAL NOT NULL,
+    address TEXT NOT NULL PRIMARY KEY,
+    dateTemperatureRange TEXT NOT NULL,
+    currentHourTemperature INTEGER AS Int NOT NULL,
+    weatherDescription TEXT NOT NULL,
+    dayTemperatureString TEXT NOT NULL
+);
+
+insertForecast:
+INSERT OR REPLACE INTO Forecast(latitude, longitude, address, dateTemperatureRange, currentHourTemperature, weatherDescription, dayTemperatureString)
+VALUES(?, ?, ?, ?, ?, ?, ?);
+
+selectForecastByLocation:
+SELECT * FROM Forecast
+WHERE latitude = ? AND longitude = ?;
+
+selectAll:
+SELECT * FROM Forecast;

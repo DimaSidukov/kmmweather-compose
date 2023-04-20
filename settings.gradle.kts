@@ -1,12 +1,15 @@
-rootProject.name = "My application"
+rootProject.name = "application"
 
 include(":androidApp")
 include(":shared")
+include(":shared:data")
+include(":shared:domain")
 
 pluginManagement {
     repositories {
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        mavenCentral()
         google()
     }
 
