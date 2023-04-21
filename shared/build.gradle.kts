@@ -33,13 +33,12 @@ kotlin {
     targets.withType<KotlinNativeTarget> {
         binaries.withType<Framework> {
             linkerOpts.add("-lsqlite3")
-            export(project(":shared:data"))
         }
     }
 
-    val koinVersion = "3.2.0"
     val ktorVersion = "2.2.1"
     val sqlDelightVersion = "1.5.5"
+    val klockVersion = "2.2.0"
 
     sourceSets {
         val commonMain by getting {

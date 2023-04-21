@@ -9,23 +9,27 @@ import repositories.WeatherRepository
 
 class InjectionHelper {
 
-    private val weatherApi = WeatherApi(
-        buildHttpClient()
-    )
+    companion object {
+        private val weatherApi = WeatherApi(
+            buildHttpClient()
+        )
 
-    private val remoteWeatherSourceModule = RemoteWeatherSource(
-        weatherApi
-    )
+        private val remoteWeatherSourceModule = RemoteWeatherSource(
+            weatherApi
+        )
 
-    private val localWeatherSourceModule = LocalWeatherSource(
-        buildDatabaseDriveFactory()
-    )
+        private val localWeatherSourceModule = LocalWeatherSource(
+            buildDatabaseDriveFactory()
+        )
 
-    private val settingsModule = AppSettings()
+        private val settingsModule = AppSettings()
 
-    val weatherRepository = WeatherRepository(
-        remoteWeatherSourceModule,
-        localWeatherSourceModule
-    )
+        val weatherRepository = WeatherRepository(
+            remoteWeatherSourceModule,
+            localWeatherSourceModule
+        )
+
+    }
+
 
 }

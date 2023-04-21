@@ -1,5 +1,6 @@
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ComposeUIViewController
+import platform.CoreGraphics.CGFloat
 
-actual fun getPlatformName(): String = "iOS"
 
-fun MainViewController() = ComposeUIViewController { App() }
+fun MainViewController(height: CGFloat) = ComposeUIViewController { App(height.dp) }

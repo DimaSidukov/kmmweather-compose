@@ -1,5 +1,5 @@
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.unit.dp
 
-actual fun getPlatformName(): String = "Android"
-
-@Composable fun MainView() = App()
+@Composable fun MainView() = App(LocalConfiguration.current.screenHeightDp.dp)

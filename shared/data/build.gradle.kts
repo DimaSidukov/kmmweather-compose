@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -13,7 +16,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -21,6 +24,12 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "data"
+        }
+    }
+
+    targets.withType<KotlinNativeTarget> {
+        binaries.withType<Framework> {
+            linkerOpts.add("-lsqlite3")
         }
     }
 
