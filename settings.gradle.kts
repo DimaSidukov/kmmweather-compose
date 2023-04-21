@@ -1,4 +1,4 @@
-rootProject.name = "application"
+rootProject.name = "kmmweatherCompose"
 
 include(":androidApp")
 include(":shared")
